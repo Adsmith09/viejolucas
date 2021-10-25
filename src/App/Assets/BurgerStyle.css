@@ -1,0 +1,169 @@
+.burgerIngredients{
+    height: 290px;
+    width: 100%;
+    overflow: auto;
+}
+.burgerIngredients p{
+    text-align: center;
+}
+.topSide{
+    background-image: url(../assets/top.jpg);
+    background-size: 300px;
+    height: 110px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bottomSide{
+    background-image: url(../assets/bottom.jpg);
+    background-size: 300px;
+    height: 60px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.lettuseSide{
+    background-image: url(../assets/lettuse.jpg);
+    background-size: 300px;
+    height: 27px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+   background-position: center;
+}
+.tomatoSide{
+    background-image: url(../assets/tomato.jpg);
+    background-size: 300px;
+    height: 20px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cheeseSide{
+    background-image: url(../assets/cheese.jpg);
+    background-size: 300px;
+    height: 15px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.meatSide{
+    background-image: url(../assets/meat.jpg);
+    background-size: 300px;
+    height: 49px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tocinoSide{
+    background-image: url(../assets/tocino.jpg);
+    background-size: 300px;
+    height: 38px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.huevoSide{
+    background-image: url(../assets/huevo.jpg);
+    background-size: 300px;
+    height: 7px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.platanoFritoSide{
+    background-image: url(../assets/platanoFrito.jpg);
+    background-size: 300px;
+    height: 10px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.jamonSide{
+    background-image: url(../assets/jamon.jpg);
+    background-size: 300px;
+    height: 9px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.piñaSide{
+    background-image: url(../assets/piña.jpg);
+    background-size: 300px;
+    height: 7px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.salcHuachanaSide{
+    background-image: url(../assets/salcHuachana.jpg);
+    background-size: 300px;
+    height: 10px;
+    width: 100%;
+    display: table;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.ingredientsBlock{
+    background-color: #f4b46c;
+    margin: 30px auto 0;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+}
+.ingredientsBlock p{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.adicionales {
+    background-color: #f4b46c;
+    margin: 30px auto 100px;
+    display: table;
+    max-width: 250px;
+    width: 100%;
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+    
+}
+.ingrBtns{
+    margin: 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cremasCheck{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.ingrBtn{
+    border: 0;
+    background-color: #c17116;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    display: table;
+    width: 95px;
+}
