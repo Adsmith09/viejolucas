@@ -2,7 +2,7 @@ import { Add, Remove } from '@material-ui/icons'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Anuncio from '../Componentes/Anuncio'
-import BoletinInfo from '../Componentes/BoletinInfo'
+// import BoletinInfo from '../Componentes/BoletinInfo'
 import Footer from '../Componentes/Footer'
 import Navbar from '../Componentes/Navbar'
 import { medida1, medida2, medida3, medida4, medida5, medida6, medida7 } from '../../responsive'
@@ -65,7 +65,7 @@ const Precio = styled.span`
     margin: 5px 0 45px 0;
 `
 const AddContainer = styled.div`
-    width: 50%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -97,13 +97,16 @@ const Amount = styled.span`
 `
 const ButtonC = styled.button`
     padding: 15px;
-    border: 1px solid gray;
+    margin-right: 5px;
+    border: 1px solid transparent;
     border-radius: 15px;
     background-color: white;
     cursor: pointer;
     font-weight: 500; 
+    background-color: #FFC300;
     &:hover{
-        background-color: #f8f4f4;
+        color: white;
+        background-color: #0509FF;
     }
     
 `
@@ -198,7 +201,7 @@ const DetalleProducto = () => {
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>
-            <BoletinInfo />
+            {/* <BoletinInfo /> */}
             <Footer />
 
         </Container>

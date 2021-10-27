@@ -120,8 +120,8 @@ export default function Navbar() {
                     </Logo>
                 </Center>
                 <Right>
-                    <MenuItem><Link to="/Registro" style={{color: 'inherit', textDecoration:'inherit' , color:'white'}}>REGISTRARSE</Link></MenuItem>
-                    <MenuItem><Link to="/InicioSesion" style={{color: 'inherit', textDecoration:'inherit', color:'white'}}>INICIAR SESIÓN</Link></MenuItem>
+                    <MenuItem><Link to="/Registro" style={{textDecoration:'inherit' , color:'white'}}>REGISTRARSE</Link></MenuItem>
+                    <MenuItem><Link to="/InicioSesion" style={{textDecoration:'inherit', color:'white'}}>INICIAR SESIÓN</Link></MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">
                             <FastfoodOutlinedIcon style={{fill:'white'}}/>

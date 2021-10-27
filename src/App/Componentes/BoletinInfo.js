@@ -4,23 +4,23 @@ import styled from 'styled-components'
 import { medida1, medida2, medida3, medida4, medida5, medida6, medida7} from '../../responsive'
 
 const Container = styled.div`
-    height: 60vh;
-    background-color: #0509FF;
+    height: 50vh;
+    background-color: #EBF4FF;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column; 
 `
 const Title = styled.h1`
-    font-size: 55px;
+    font-size: 40px;
     margin: 20px;
-    color: white ;
+    color: black ;
 `
 const Description = styled.div`
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
     margin-bottom: 20px;
-    color: white ;
+    color: black ;
     ${medida1({textAlign:"center"})}; 
     ${medida2({textAlign:"center"})}; 
     ${medida3({textAlign:"center"})}; 
@@ -30,7 +30,7 @@ const Description = styled.div`
     ${medida7({textAlign:"center"})}; 
 `
 const InputContainer = styled.div`
-    width: 40%;
+    width: 30%;
     height: 35px;
     background-color: white;
     display: flex;

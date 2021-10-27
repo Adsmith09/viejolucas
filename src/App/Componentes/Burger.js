@@ -166,8 +166,8 @@ export default class Burger extends Component {
         margin: 0 auto;
         
         &:hover{
-            border-color: #c17116;
-            outline-color: #c17116;
+            border-color: #FFC300;
+            outline-color: #FFC300;
         }
 `
 
@@ -206,14 +206,15 @@ export default class Burger extends Component {
         // `
         const ButtonC = styled.button`
         padding: 15px;
-        border: 1px solid gray;
+        border: 1px solid transparent;
         border-radius: 15px;
         background-color: #f4b46c;
         cursor: pointer;
-        font-weight: 500; 
-        &:hover{
-            background-color: #c17116;
-        }
+        background-color: #FFC300;
+    &:hover{
+        color: white;
+        background-color: #0509FF;
+    }
 
         position: relative;
         display: block;

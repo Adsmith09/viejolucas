@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import BoletinInfo from '../Componentes/BoletinInfo'
+// import BoletinInfo from '../Componentes/BoletinInfo'
 import Burger from '../Componentes/Burger'
 import Footer from '../Componentes/Footer'
 import Navbar from '../Componentes/Navbar'
@@ -40,7 +40,7 @@ const PersonalizarBurger = () => {
              <br/>
              <br/>
              
-             <BoletinInfo/>
+             {/* <BoletinInfo/> */}
              <Footer/>
         </Container>
     )

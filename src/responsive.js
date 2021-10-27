@@ -58,3 +58,4 @@ export const medida8 = (props) =>{
     }
     `;
 }
+
