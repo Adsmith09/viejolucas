@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Badge } from '@material-ui/core'
 import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
-import { medida1, medida2, medida3, medida4, medida5, medida6, medida7} from '../../responsive'
+import { medida1, medida2, medida3, medida4, medida5, medida6, medida7, medida8} from '../../responsive'
 import {Link} from 'react-router-dom'
 
 const Container = styled.div`
@@ -35,13 +35,14 @@ const Left = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    ${medida1({display:"none"})};
-    ${medida2({display:"none"})};
-    ${medida3({display:"none"})};
-    ${medida4({display:"none"})};
-    ${medida5({display:"none"})};
-    ${medida6({display:"none"})};
-    ${medida7({display:"none"})};
+    ${medida1({flex:1, justifyContent:"center"})};
+    ${medida2({flex:1, justifyContent:"center"})};
+    ${medida3({flex:1, justifyContent:"center"})};
+    ${medida4({flex:1, justifyContent:"center"})};
+    ${medida5({flex:1, justifyContent:"center"})};
+    ${medida6({flex:1, justifyContent:"center"})};
+    ${medida7({flex:1, justifyContent:"center"})};
+    ${medida8({flex:1, justifyContent:"center"})};
 `
 // const Language = styled.span`
 //     font-size: 14px;
@@ -104,6 +105,13 @@ const MenuItem = styled.div`
 const LogoV = styled.img`
     width:15%;
     float: right;
+    ${medida1({width:"30%"})};
+    ${medida2({width:"30%"})};
+    ${medida3({width:"30%"})};
+    ${medida4({width:"25%"})};
+    ${medida5({width:"30%"})};
+    ${medida6({width:"30%"})};
+    ${medida7({width:"30%"})};
 `
 
 export default function Navbar() {

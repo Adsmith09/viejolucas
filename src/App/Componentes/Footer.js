@@ -70,13 +70,6 @@ const ListItem = styled.li`
 const Rigth = styled.div`
     flex: 1;
     /* padding: 20px; */
-    ${medida1({ backgroundColor: "#fff8f8" })}
-    ${medida2({ backgroundColor: "#fff8f8" })};
-    ${medida3({ backgroundColor: "#fff8f8" })};
-    ${medida4({ backgroundColor: "#fff8f8" })};
-    ${medida5({ backgroundColor: "#fff8f8" })};
-    ${medida6({ backgroundColor: "#fff8f8" })};
-    ${medida7({ backgroundColor: "#fff8f8" })};
 `
 const ConctactoItem = styled.div`
     margin-top: 25px;
