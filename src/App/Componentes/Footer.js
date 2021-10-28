@@ -29,7 +29,7 @@ const Left = styled.div`
 const Logo = styled.img`
     display:block;
     margin:0px auto;
-    width: 30%;
+    width:35%;
     padding-bottom:20px;
 `
 const SocialContainer = styled.div`

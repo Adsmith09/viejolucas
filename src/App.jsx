@@ -1,5 +1,4 @@
 import React from "react";
-
 import Carta from "./App/Paginas/Carta";
 import Registro from "./App/Paginas/Registro";
 import Home from "./App/Paginas/Home";

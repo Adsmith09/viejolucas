@@ -6,7 +6,7 @@ import { medida1, medida2, medida3, medida4, medida5, medida6, medida7} from '..
 import {Link} from 'react-router-dom'
 
 const Container = styled.div`
-    height : 60px;
+    height : 80px;
     ${medida1({heigth:"50px"})};
     ${medida2({heigth:"50px"})};
     ${medida3({heigth:"50px"})};
@@ -34,6 +34,7 @@ const Left = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
     ${medida1({display:"none"})};
     ${medida2({display:"none"})};
     ${medida3({display:"none"})};
@@ -79,7 +80,7 @@ const Right = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     ${medida1({flex:2, justifyContent:"center"})};
     ${medida2({flex:2, justifyContent:"center"})};
     ${medida3({flex:2, justifyContent:"center"})};
@@ -100,6 +101,10 @@ const MenuItem = styled.div`
     ${medida6({fontSize:"12px", marginLeft:"10px"})};
     ${medida7({fontSize:"12px", marginLeft:"10px"})};
 `
+const LogoV = styled.img`
+    width:16%;
+    float: right;
+`
 
 export default function Navbar() {
     return (
@@ -113,18 +118,15 @@ export default function Navbar() {
                         <Input />
                         <Search style={{color:"gray", fontSize:16}}/>
                     </SearchContainer> */}
+                    <LogoV src="https://i.ibb.co/QKMwbHJ/logo2.png" />
                 </Left>
-                <Center>
-                    <Logo>
-                        VIEJO LUCAS.
-                    </Logo>
-                </Center>
+               
                 <Right>
                     <MenuItem><Link to="/Registro" style={{textDecoration:'inherit' , color:'white'}}>REGISTRARSE</Link></MenuItem>
                     <MenuItem><Link to="/InicioSesion" style={{textDecoration:'inherit', color:'white'}}>INICIAR SESIÓN</Link></MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">
-                            <FastfoodOutlinedIcon style={{fill:'white'}}/>
+                            <FastfoodOutlinedIcon style={{fill:'white', fontSize: '28px'}}/>
                         </Badge>
                     </MenuItem>
                 </Right>

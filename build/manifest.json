@@ -1,0 +1,11 @@
+{
+    "short_name": "Viejo Lucas",
+    "icons": [
+        {
+            "src": "logo_viejolucas-i.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "./index.html"
+}
