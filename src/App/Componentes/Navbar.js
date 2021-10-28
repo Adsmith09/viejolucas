@@ -102,7 +102,7 @@ const MenuItem = styled.div`
     ${medida7({fontSize:"12px", marginLeft:"10px"})};
 `
 const LogoV = styled.img`
-    width:16%;
+    width:15%;
     float: right;
 `
 
