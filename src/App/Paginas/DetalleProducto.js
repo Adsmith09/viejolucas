@@ -6,9 +6,10 @@ import Anuncio from '../Componentes/Anuncio'
 import Footer from '../Componentes/Footer'
 import Navbar from '../Componentes/Navbar'
 import { medida1, medida2, medida3, medida4, medida5, medida6, medida7 } from '../../responsive'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { buscar } from '../../servicios/api';
 import { Button } from '@material-ui/core'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const Container = styled.div`
 
@@ -152,13 +153,15 @@ const DetalleProducto = () => {
         fetchProducto();
     }, [id])
 
-    const [contador, setCount] = useState(1)
+    const [contador, setCount] = useState(1);
+    const history = useHistory();
 
     return (
 
         <Container>
             <Anuncio />
             <Navbar />
+            <Button onClick={() => history.goBack()}> <ArrowBackIcon style={{fill: '#0509FF' }}/> </Button>
             <Wrapper key={producto.id}>
                 <ImgContainer>
                     <Image src={producto.imagen}></Image>

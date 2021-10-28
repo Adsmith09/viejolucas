@@ -164,10 +164,12 @@ export default class Burger extends Component {
         position: relative;
         display: block;
         margin: 0 auto;
+        border-color: #FFC300;
+        outline-color: #FFC300;
         
         &:hover{
-            border-color: #FFC300;
-            outline-color: #FFC300;
+            border-color: #0509FF;
+            outline-color: #0509FF;
         }
 `
 
