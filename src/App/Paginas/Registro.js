@@ -20,18 +20,18 @@ const Container = styled.div`
     justify-content: center;
 `
 const Wrapper = styled.div`
-    width: 50%;
-    height: 47%;
+    width: 60%;
+    height: 50%;
     padding: 20px;
     background-color: white;
-    ${medida1({ height: "65%" })};
-    ${medida2({ height: "65%" })};
-    ${medida3({ height: "65%" })};
-    ${medida4({ height: "65%" })};
-    ${medida5({ height: "65%" })};
-    ${medida6({ height: "65%" })};
-    ${medida7({ height: "65%" })};
-    ${medida8({ height: "65%" })};
+    ${medida1({ height: "85%" })};
+    ${medida2({ height: "85%" })};
+    ${medida3({ height: "85%" })};
+    ${medida4({ height: "85%" })};
+    ${medida5({ height: "85%" })};
+    ${medida6({ height: "85%" })};
+    ${medida7({ height: "85%" })};
+    ${medida8({ height: "85%" })};
 `
 const Title = styled.h1`
     font-size: 24px;

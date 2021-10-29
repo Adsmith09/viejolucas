@@ -60,23 +60,23 @@ const Left = styled.div`
 //     border: none;
 //     ${mobile({width:"50px"})};
 // `
-const Logo = styled.h1`
-    font-weight: bold;
-    font-family:'Urbanist';
-    ${medida1({fontSize:"24px"})};
-    ${medida2({fontSize:"24px"})};
-    ${medida3({fontSize:"24px"})};
-    ${medida4({fontSize:"24px"})};
-    ${medida5({fontSize:"24px"})};
-    ${medida6({fontSize:"24px"})};
-    ${medida7({fontSize:"24px"})};
-    color: white;
-`
-const Center = styled.div`
-    flex: 1;
-    text-align: center;
-    display: inline-block;
-`
+// const Logo = styled.h1`
+//     font-weight: bold;
+//     font-family:'Urbanist';
+//     ${medida1({fontSize:"24px"})};
+//     ${medida2({fontSize:"24px"})};
+//     ${medida3({fontSize:"24px"})};
+//     ${medida4({fontSize:"24px"})};
+//     ${medida5({fontSize:"24px"})};
+//     ${medida6({fontSize:"24px"})};
+//     ${medida7({fontSize:"24px"})};
+//     color: white;
+// `
+// const Center = styled.div`
+//     flex: 1;
+//     text-align: center;
+//     display: inline-block;
+// `
 const Right = styled.div`
     flex: 1;
     display: flex;
