@@ -3,6 +3,7 @@ import { medida1, medida2, medida3, medida4, medida5, medida6, medida7} from '..
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+// import { useState } from "react";
 
 const Container = styled.div`
     width: 100vw;
@@ -62,14 +63,32 @@ const Link = styled.a`
 
 export default function InicioSesion() {
     const history = useHistory();
+    // const [usuarioo, setUsuarioo] = useState({
+    //     usuario:'',
+    //     contraseña:'',
+    // });
+
+    // const [error, setError] = useState('');
+
+    // const Login = (detalles)=>{
+    //     console.log(detalles);
+    // }
+
+    // const Logout = ()=>{
+    //     console.log("Logout");
+    // }
+
     return (
         <Container>
+           
             <div><Button onClick={()=> history.goBack()}> <ArrowBackIcon/> </Button></div>
+            {/* {(usuarioo.usuario != "") ? (<>Bienvenido</>) : ( */}
             <Wrapper>
                 <Title> Iniciar Sesion</Title>
                 <Form>
-                    <Input placeholder="Usuario"/>
-                    <Input placeholder="Contraseña"/>
+                    
+                    <Input type ="text" placeholder="Usuario"/>
+                    <Input type="password" placeholder="Contraseña"/>
                     <ButtonL>
                         Iniciar Sesion
                     </ButtonL>
@@ -77,6 +96,7 @@ export default function InicioSesion() {
                     <Link> CREAR CUENTA NUEVA </Link>
                 </Form>
             </Wrapper>
+            {/* )} */}
         </Container>
     )
 }

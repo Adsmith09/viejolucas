@@ -134,7 +134,7 @@ export default function Navbar() {
                     <MenuItem><Link to="/InicioSesion" style={{textDecoration:'inherit', color:'white'}}>INICIAR SESIÓN</Link></MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">
-                            <FastfoodOutlinedIcon style={{fill:'white', fontSize: '28px'}}/>
+                            <Link to="/Carrito"><FastfoodOutlinedIcon style={{fill:'white', fontSize: '28px'}} /></Link>
                         </Badge>
                     </MenuItem>
                 </Right>

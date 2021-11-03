@@ -1,5 +1,5 @@
-import { Add, Remove } from '@material-ui/icons'
-import React, { useEffect, useState } from 'react'
+// import { Add, Remove } from '@material-ui/icons'
+import React, { useEffect, useReducer, useState } from 'react'
 import styled from 'styled-components'
 import Anuncio from '../Componentes/Anuncio'
 // import BoletinInfo from '../Componentes/BoletinInfo'
@@ -10,6 +10,8 @@ import { useParams, useHistory } from 'react-router-dom'
 import { buscar } from '../../servicios/api';
 import { Button } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { TYPES } from '../Componentes/carritoAction'
+import { carritoInitialState, carritoReducer } from '../Componentes/carritoReducer'
 
 const Container = styled.div`
 
@@ -80,22 +82,22 @@ const AddContainer = styled.div`
     ${medida7({ width: "100%" })};
     margin: 70px 0 0 0;
 `
-const AmountContainer = styled.div`
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-`
-const Amount = styled.span`
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 5px;
-    
-`
+// const AmountContainer = styled.div`
+//     display: flex;
+//     align-items: center;
+//     font-weight: 700;
+// `
+// const Amount = styled.span`
+//     width: 30px;
+//     height: 30px;
+//     border-radius: 10px;
+//     border: 1px solid gray;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin: 0px 5px;
+
+// `
 const ButtonC = styled.button`
     padding: 15px;
     margin-right: 5px;
@@ -123,7 +125,6 @@ const Adicionales = styled.div`
 
 const DetalleProducto = () => {
 
-
     const [producto, setProducto] = useState({
         nombre: '',
         descripcion: '',
@@ -133,7 +134,7 @@ const DetalleProducto = () => {
 
     const { id } = useParams();
     //const history = useHistory();
-    
+
 
     useEffect(() => {
         const fetchProducto = async () => {
@@ -153,15 +154,21 @@ const DetalleProducto = () => {
         fetchProducto();
     }, [id])
 
-    const [contador, setCount] = useState(1);
+    // const [contador, setCount] = useState(1);
     const history = useHistory();
+    const [state, dispatch] = useReducer(carritoReducer, carritoInitialState);
+
+    const addToCart = (id) => {
+        console.log(id);
+        dispatch({type:TYPES.ADD_TO_CART,payload:id});
+    }
 
     return (
 
         <Container>
             <Anuncio />
             <Navbar />
-            <Button onClick={() => history.goBack()}> <ArrowBackIcon style={{fill: '#0509FF' }}/> </Button>
+            <Button onClick={() => history.goBack()}> <ArrowBackIcon style={{ fill: '#0509FF' }} /> </Button>
             <Wrapper key={producto.id}>
                 <ImgContainer>
                     <Image src={producto.imagen}></Image>
@@ -177,10 +184,10 @@ const DetalleProducto = () => {
                         S/.  {producto.precio}
                     </Precio>
                     <div >
-                        <p style= {{color: 'blue', fontFamily:'Urbanist', fontWeight: 'bold'}}>Seleccione Adicionales:</p>
-                        <Adicionales>
+                        <p style={{ color: 'blue', fontFamily: 'Urbanist', fontWeight: 'bold' }}>Seleccione Adicionales:</p>
+                        {/* <Adicionales>
                             <InputC type="checkbox" name="mTocino" value="mermeladaTocino" />Mermelada de Tocino
-                        </Adicionales>
+                        </Adicionales> */}
                         <Adicionales>
                             <InputC type="checkbox" name="mayonesa" value="mayonesa" />Mayonesa
                         </Adicionales>
@@ -195,12 +202,12 @@ const DetalleProducto = () => {
                         </Adicionales>
                     </div>
                     <AddContainer>
-                        <AmountContainer>
+                        {/* <AmountContainer>
                             <Button onClick={() => contador > 1 ? setCount(contador - 1) : contador}><Remove /></Button>
                             <Amount >{contador}</Amount>
                             <Button onClick={() => setCount(contador + 1)}><Add /></Button>
-                        </AmountContainer>
-                        <ButtonC>Agregar al Carrito</ButtonC>
+                        </AmountContainer> */}
+                        <ButtonC onClick={() => addToCart(id)}>Agregar al Carrito</ButtonC>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>

@@ -10,6 +10,7 @@ import ScrollRestoration from 'react-scroll-restoration'
 import PersonalizarBurger from "./App/Paginas/PersonalizarBurger";
 
 
+
 const App = () => {
  
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/Carta" exact component={Carta} />
         <Route path="/DetalleProducto/:id" exact component={DetalleProducto} />
         <Route path="/Carrito" exact component={Carrito} />
+     
       </Switch>
     </BrowserRouter>
   );

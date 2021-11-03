@@ -233,7 +233,7 @@ const Registro = () => {
         // console.log(nuevoCliente);
         // alert("Cliente Registrado");
         console.log(nuevoUsuario);
-        // alert("Usuario Registrado");
+        alert("Cliente y Usuario Registrado");
       }
 
     } catch (error) {
