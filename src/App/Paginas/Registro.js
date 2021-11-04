@@ -234,6 +234,8 @@ const Registro = () => {
         // alert("Cliente Registrado");
         console.log(nuevoUsuario);
         alert("Cliente y Usuario Registrado");
+        // localStorage.setItem("user-info",JSON.stringify(nuevoUsuario))
+        history.push("/");
       }
 
     } catch (error) {

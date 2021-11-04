@@ -3,6 +3,8 @@ import { medida1, medida2, medida3, medida4, medida5, medida6, medida7} from '..
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 // import { useState } from "react";
 
 const Container = styled.div`
@@ -63,10 +65,35 @@ const Link = styled.a`
 
 export default function InicioSesion() {
     const history = useHistory();
-    // const [usuarioo, setUsuarioo] = useState({
-    //     usuario:'',
-    //     contraseña:'',
-    // });
+    
+    const [usuario,setUsuario] = useState("");
+    const [contraseña,setContraseña] = useState("");
+
+    useEffect(()=>{
+        if(localStorage.getItem("user-info")){
+            // history.push("/");
+        }
+    },[])
+
+    async function login() {
+        let item={usuario,contraseña};
+            let result= await fetch("http://localhost:8000/api/v1/Login",{
+                method: 'POST',
+                headers:{
+
+                    "Content-Type": "application/json",
+                    "Accept":"application/json",
+                },
+                    body: JSON.stringify(item)
+            });
+
+            result= await result.json();
+            localStorage.setItem("user-info",JSON.stringify(result))
+
+            history.push("/");
+    }
+
+    
 
     // const [error, setError] = useState('');
 
@@ -78,6 +105,8 @@ export default function InicioSesion() {
     //     console.log("Logout");
     // }
 
+    
+
     return (
         <Container>
            
@@ -87,9 +116,9 @@ export default function InicioSesion() {
                 <Title> Iniciar Sesion</Title>
                 <Form>
                     
-                    <Input type ="text" placeholder="Usuario"/>
-                    <Input type="password" placeholder="Contraseña"/>
-                    <ButtonL>
+                    <Input type ="text" placeholder="Usuario" onChange={(e)=>setUsuario(e.target.value)}/>
+                    <Input type="password" placeholder="Contraseña" onChange={(e)=>setContraseña(e.target.value)}/>
+                    <ButtonL onClick={login}>
                         Iniciar Sesion
                     </ButtonL>
                     <Link> OLVIDO SU CONTRASEÑA? </Link>
