@@ -2,18 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import { Badge } from '@material-ui/core'
 import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
-import { medida1, medida2, medida3, medida4, medida5, medida6, medida7, medida8} from '../../responsive'
-import {Link} from 'react-router-dom'
+import { medida1, medida2, medida3, medida4, medida5, medida6, medida7, medida8 } from '../../responsive'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 
 const Container = styled.div`
     height : 80px;
-    ${medida1({heigth:"50px"})};
-    ${medida2({heigth:"50px"})};
-    ${medida3({heigth:"50px"})};
-    ${medida4({heigth:"50px"})};
-    ${medida5({heigth:"50px"})};
-    ${medida6({heigth:"50px"})};
-    ${medida7({heigth:"50px"})};
+    ${medida1({ heigth: "50px" })};
+    ${medida2({ heigth: "50px" })};
+    ${medida3({ heigth: "50px" })};
+    ${medida4({ heigth: "50px" })};
+    ${medida5({ heigth: "50px" })};
+    ${medida6({ heigth: "50px" })};
+    ${medida7({ heigth: "50px" })};
     background-color: #FFC300 ;
 `
 const Wrapper = styled.div`
@@ -21,13 +23,13 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    ${medida1({padding:"10px 0px"})};
-    ${medida2({padding:"10px 0px"})};
-    ${medida3({padding:"10px 0px"})};
-    ${medida4({padding:"10px 0px"})};
-    ${medida5({padding:"10px 0px"})};
-    ${medida6({padding:"10px 0px"})};
-    ${medida7({padding:"10px 0px"})};
+    ${medida1({ padding: "10px 0px" })};
+    ${medida2({ padding: "10px 0px" })};
+    ${medida3({ padding: "10px 0px" })};
+    ${medida4({ padding: "10px 0px" })};
+    ${medida5({ padding: "10px 0px" })};
+    ${medida6({ padding: "10px 0px" })};
+    ${medida7({ padding: "10px 0px" })};
     
 `
 const Left = styled.div`
@@ -35,14 +37,14 @@ const Left = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    ${medida1({flex:1, justifyContent:"center"})};
-    ${medida2({flex:1, justifyContent:"center"})};
-    ${medida3({flex:1, justifyContent:"center"})};
-    ${medida4({flex:1, justifyContent:"center"})};
-    ${medida5({flex:1, justifyContent:"center"})};
-    ${medida6({flex:1, justifyContent:"center"})};
-    ${medida7({flex:1, justifyContent:"center"})};
-    ${medida8({flex:1, justifyContent:"center"})};
+    ${medida1({ flex: 1, justifyContent: "center" })};
+    ${medida2({ flex: 1, justifyContent: "center" })};
+    ${medida3({ flex: 1, justifyContent: "center" })};
+    ${medida4({ flex: 1, justifyContent: "center" })};
+    ${medida5({ flex: 1, justifyContent: "center" })};
+    ${medida6({ flex: 1, justifyContent: "center" })};
+    ${medida7({ flex: 1, justifyContent: "center" })};
+    ${medida8({ flex: 1, justifyContent: "center" })};
 `
 // const Language = styled.span`
 //     font-size: 14px;
@@ -82,39 +84,40 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    ${medida1({flex:2, justifyContent:"center"})};
-    ${medida2({flex:2, justifyContent:"center"})};
-    ${medida3({flex:2, justifyContent:"center"})};
-    ${medida4({flex:2, justifyContent:"center"})};
-    ${medida5({flex:2, justifyContent:"center"})};
-    ${medida6({flex:2, justifyContent:"center"})};
-    ${medida7({flex:2, justifyContent:"center"})};
+    ${medida1({ flex: 2, justifyContent: "center" })};
+    ${medida2({ flex: 2, justifyContent: "center" })};
+    ${medida3({ flex: 2, justifyContent: "center" })};
+    ${medida4({ flex: 2, justifyContent: "center" })};
+    ${medida5({ flex: 2, justifyContent: "center" })};
+    ${medida6({ flex: 2, justifyContent: "center" })};
+    ${medida7({ flex: 2, justifyContent: "center" })};
 `
 const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
-    ${medida1({fontSize:"12px", marginLeft:"10px"})};
-    ${medida2({fontSize:"12px", marginLeft:"10px"})};
-    ${medida3({fontSize:"12px", marginLeft:"10px"})};
-    ${medida4({fontSize:"12px", marginLeft:"10px"})};
-    ${medida5({fontSize:"12px", marginLeft:"10px"})};
-    ${medida6({fontSize:"12px", marginLeft:"10px"})};
-    ${medida7({fontSize:"12px", marginLeft:"10px"})};
+    ${medida1({ fontSize: "12px", marginLeft: "10px" })};
+    ${medida2({ fontSize: "12px", marginLeft: "10px" })};
+    ${medida3({ fontSize: "12px", marginLeft: "10px" })};
+    ${medida4({ fontSize: "12px", marginLeft: "10px" })};
+    ${medida5({ fontSize: "12px", marginLeft: "10px" })};
+    ${medida6({ fontSize: "12px", marginLeft: "10px" })};
+    ${medida7({ fontSize: "12px", marginLeft: "10px" })};
 `
 const LogoV = styled.img`
     width:15%;
     float: right;
-    ${medida1({width:"30%"})};
-    ${medida2({width:"30%"})};
-    ${medida3({width:"30%"})};
-    ${medida4({width:"25%"})};
-    ${medida5({width:"30%"})};
-    ${medida6({width:"30%"})};
-    ${medida7({width:"30%"})};
+    ${medida1({ width: "30%" })};
+    ${medida2({ width: "30%" })};
+    ${medida3({ width: "30%" })};
+    ${medida4({ width: "25%" })};
+    ${medida5({ width: "30%" })};
+    ${medida6({ width: "30%" })};
+    ${medida7({ width: "30%" })};
 `
 
 export default function Navbar() {
+    const cantidad = useSelector(state => state.carrito.cantidad)
     return (
         <Container>
             <Wrapper>
@@ -128,15 +131,17 @@ export default function Navbar() {
                     </SearchContainer> */}
                     <LogoV src="https://i.ibb.co/QKMwbHJ/logo2.png" />
                 </Left>
-               
+
                 <Right>
-                    <MenuItem><Link to="/Registro" style={{textDecoration:'inherit' , color:'white'}}>REGISTRARSE</Link></MenuItem>
-                    <MenuItem><Link to="/InicioSesion" style={{textDecoration:'inherit', color:'white'}}>INICIAR SESIÓN</Link></MenuItem>
-                    <MenuItem>
-                        <Badge badgeContent={4} color="primary">
-                            <Link to="/Carrito"><FastfoodOutlinedIcon style={{fill:'white', fontSize: '28px'}} /></Link>
-                        </Badge>
-                    </MenuItem>
+                    <MenuItem><Link to="/Registro" style={{ textDecoration: 'inherit', color: 'white' }}>REGISTRARSE</Link></MenuItem>
+                    <MenuItem><Link to="/InicioSesion" style={{ textDecoration: 'inherit', color: 'white' }}>INICIAR SESIÓN</Link></MenuItem>
+                    <Link to="/Carrito">
+                        <MenuItem>
+                            <Badge badgeContent={cantidad} color="primary">
+                                <FastfoodOutlinedIcon style={{ fill: 'white', fontSize: '28px' }} />
+                            </Badge>
+                        </MenuItem>
+                    </Link>
                 </Right>
             </Wrapper>
         </Container>

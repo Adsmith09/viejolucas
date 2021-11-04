@@ -4,12 +4,15 @@ import Footer from "../Componentes/Footer"
 import Navbar from "../Componentes/Navbar"
 import Productos from "../Componentes/Productos"
 import { medida1, medida2, medida3, medida4, medida5, medida6, medida7} from '../../responsive'
+import { useLocation } from "react-router"
+import { useState } from "react"
 
 const Container = styled.div`
 
 `
 const Title = styled.h1`
     margin: 20px;
+    color: #0509FF;
 `
 const FilterContainer = styled.div`
     width:20%;
@@ -55,18 +58,22 @@ const Option = styled.option`
 `
 
  export default function Carta() {
-     return (
+    const location = useLocation() ;
+    const categoria = location.pathname.split("/")[1]
+    const [cprecio, setCprecio] = useState("asc");
+
+    return (
          <Container>
              <Navbar/>
              <Title> Hamburguesas</Title>
              <FilterContainer>
                  <Filter><FilterText>Filtro: </FilterText> </Filter>
-                 <Select>
-                     <Option selected>Precio ascendente</Option>
-                     <Option>Precio descendente</Option>
+                 <Select name="precio" onChange={e=>setCprecio(e.target.value)}>
+                     <Option value='asc'>Precio ascendente</Option>
+                     <Option value='dsc'>Precio descendente</Option>
                  </Select>
              </FilterContainer>
-             <Productos/>
+             <Productos categoria={categoria} cprecio={cprecio}/>
              <BoletinInfo/>
              <Footer/>
          </Container>

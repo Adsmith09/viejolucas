@@ -1,12 +1,12 @@
-import React, { useReducer } from 'react'
+import React, { useState } from 'react'
 import Navbar from '../Componentes/Navbar'
 import Anuncio from '../Componentes/Anuncio'
 import Footer from '../Componentes/Footer'
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
 import { medida1, medida2, medida3, medida4, medida5, medida6, medida7 } from '../../responsive'
-import { carritoInitialState, carritoReducer } from '../Componentes/carritoReducer'
-import itemCarrito from '../Componentes/itemCarrito'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 `
@@ -22,6 +22,8 @@ const Wrapper = styled.div`
 `
 const Title = styled.h1`
     font-weight: 300;
+    color: #0509FF;
+    font-family:'Trebuchet MS';
     text-align: center;
 `
 const Top = styled.div`
@@ -35,9 +37,11 @@ const TopButton = styled.button`
     padding: 10px;
     font-weight: 600;
     cursor: pointer;
+    color: #0509FF;
+    border-color:#FFC300;
     border:${props => props.type === "filled" && "none"};
-    background-color:${props => props.type === "filled" ? "black" : "transparent"};
-    color:${props => props.type === "filled" && "white"};
+    background-color:${props => props.type === "filled" ? "#0509FF" : "transparent"};
+    color:${props => props.type === "filled" && "yellow"};
 `
 const TopTexts = styled.div`
     ${medida1({ display: "none" })};
@@ -62,53 +66,53 @@ const Info = styled.div`
     flex: 3; 
 `
 
-// const Producto = styled.div`
-//     display: flex;  
-//     justify-content: space-between;
-//     padding: 2px;
-//     ${medida1({flexDirection:"column"})};
-// `
-// const ProductoDetalle = styled.div`
-//     flex: 2;
-//     display: flex;
-// `
-// const Image = styled.img`
-//      width: 200px;
-// `
-// const Detalle = styled.div`
-//     padding: 20px;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-around;
+const Producto = styled.div`
+    display: flex;  
+    justify-content: space-between;
+    padding: 2px;
+    ${medida1({flexDirection:"column"})};
+`
+const ProductoDetalle = styled.div`
+    flex: 2;
+    display: flex;
+`
+const Image = styled.img`
+     width: 200px;
+`
+const Detalle = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-// `
-// const NombreProducto = styled.span`
+`
+const NombreProducto = styled.span`
 
-// `
+`
 
-// const PrecioDetalle = styled.div`
-//     flex: 1;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
+const PrecioDetalle = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-// `
-// const CantidadProductoContainer = styled.div`
-//     display: flex;
-//     align-items: center;
-//     margin-bottom: 20px;    
-// `
-// const CantidadProducto = styled.div`
-//     font-size: 24px;
-//     margin: 5px;
-//     ${medida1({margin:"5px 15px"})};
-// `
-// const PrecioProducto = styled.div`
-//     font-size: 30px;
-//     font-weight: 200;
-//     ${medida1({marginBottom:"20px"})};
-// `
+`
+const CantidadProductoContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;    
+`
+const CantidadProducto = styled.div`
+    font-size: 24px;
+    margin: 5px;
+    ${medida1({margin:"5px 15px"})};
+`
+const PrecioProducto = styled.div`
+    font-size: 30px;
+    font-weight: 200;
+    ${medida1({marginBottom:"20px"})};
+`
 const Hr = styled.hr`
     background-color: #eee;
     border: none;
@@ -140,25 +144,34 @@ const SummaryItemPrice = styled.span`
 const Button = styled.button`
     width: 100%;
     padding: 10px;
-    background-color: black;
-    color: white;
+    background-color:#0509FF ;
+    color: #FFC300;
     font-weight: 600;
+`
+const ButtonC = styled.button`
+    width: 60%;
+    background-color: transparent;
+    border-style:none;
+    cursor: pointer;
 `
 
 export default function Carrito() {
-    // const [carrito, setcarrito] = useState({})
+    const carrito = useSelector(state => state.carrito);
+    const cantidad = useSelector(state => state.carrito.cantidad);
+    // const [cantidadC, setCantidadC] = useState(1);
+    // const dispatch = useDispatch();
+    // const handleCantidad = (tipo) =>{
+    //     if(tipo ==="dis"){
+            
+    //         cantidadC > 1 && setCantidadC(cantidadC-1);
+    //         dispatch({ ...carrito.producto, cantidad});
+    //     }else{
+    //         setCantidadC(cantidadC+1);
+    //         dispatch({ ...carrito.producto, cantidad});
+    //     }
+    // }
 
-    const [state, dispatch] = useReducer(carritoReducer, carritoInitialState);
 
-    const { carrito } = state;
-
-    const delFromCart = () => {
-
-    }
-
-    const clearCart = () => {
-
-    }
     return (
         <Container>
             <Anuncio />
@@ -166,42 +179,47 @@ export default function Carrito() {
             <Wrapper>
                 <Title>TU CARRITO</Title>
                 <Top>
-                    <TopButton>CONTINUAR COMPRANDO</TopButton>
+                    <Link to='/Carta'><TopButton >CONTINUAR COMPRANDO</TopButton></Link>
                     <TopTexts>
-                        <TopText>Bolsa de Compra(2)</TopText>
+                        <TopText>Bolsa de Compra({cantidad})</TopText>
                     </TopTexts>
                     <TopButton type="filled">PAGAR AHORA</TopButton>
                 </Top>
                 <Bottom>
                     <Info>
-                        {/* {state.carrito.map((item, index) =>(<itemCarrito key = {index} data={item} delFromCart={delFromCart}/>))} */}
-                        {
-                            window.onload = function () {
-                                const storage = JSON.parse(localStorage.getItem('carrito'));
-                                if (storage) {
-                                    carrito = storage;
-                                    state.carrito.map((item) => (
-                                        <itemCarrito item={item} key={item.id} />
-                                    ))
-                                }
-                            }
-                        }
+                        {carrito.productos.map(producto=>(
+                        <Producto>
+                            <ProductoDetalle>
+                                <Image src={producto.imagen}/>
+                                <Detalle>
+                                    <NombreProducto><b style={{color: '#0509FF'}}>Producto: </b> {producto.nombre}</NombreProducto>
+                                </Detalle>
+                            </ProductoDetalle>
+                            <PrecioDetalle>
+                                <CantidadProductoContainer>
+                                    <ButtonC  ><Add /></ButtonC>
+                                    <CantidadProducto>{producto.cantidad}</CantidadProducto>
+                                    <ButtonC ><Remove /></ButtonC>
+                                </CantidadProductoContainer>
+                                <PrecioProducto>S/ {producto.precio * producto.cantidad}</PrecioProducto>
+                            </PrecioDetalle>
+                        </Producto>
+                        ))}
                         <Hr />
                     </Info>
                     <Summary>
                         <SummaryTitle>RESUMEN DE ORDEN</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>SUBTOTAL</SummaryItemText>
-                            <SummaryItemPrice>S/ 20</SummaryItemPrice>
+                            <SummaryItemPrice>S/ {carrito.total} </SummaryItemPrice>
                         </SummaryItem>
-
-                        <SummaryItem>
+                        {/* <SummaryItem>
                             <SummaryItemText>PRECIO DE ENVÍO</SummaryItemText>
                             <SummaryItemPrice>S/ 4</SummaryItemPrice>
-                        </SummaryItem>
+                        </SummaryItem> */}
                         <SummaryItem type="total">
                             <SummaryItemText >TOTAL</SummaryItemText>
-                            <SummaryItemPrice>S/ 24</SummaryItemPrice>
+                            <SummaryItemPrice>S/ {carrito.total} </SummaryItemPrice>
                         </SummaryItem>
                         <Button>PAGAR AHORA</Button>
                     </Summary>

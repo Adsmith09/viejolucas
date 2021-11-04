@@ -1,17 +1,16 @@
-// import { Add, Remove } from '@material-ui/icons'
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Anuncio from '../Componentes/Anuncio'
-// import BoletinInfo from '../Componentes/BoletinInfo'
 import Footer from '../Componentes/Footer'
 import Navbar from '../Componentes/Navbar'
 import { medida1, medida2, medida3, medida4, medida5, medida6, medida7 } from '../../responsive'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory} from 'react-router-dom'
 import { buscar } from '../../servicios/api';
 import { Button } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { TYPES } from '../Componentes/carritoAction'
-import { carritoInitialState, carritoReducer } from '../Componentes/carritoReducer'
+import { Add, Remove } from '@material-ui/icons'
+import { addProducto } from '../Redux/carritoRedux'
+import { useDispatch } from 'react-redux'
 
 const Container = styled.div`
 
@@ -82,22 +81,22 @@ const AddContainer = styled.div`
     ${medida7({ width: "100%" })};
     margin: 70px 0 0 0;
 `
-// const AmountContainer = styled.div`
-//     display: flex;
-//     align-items: center;
-//     font-weight: 700;
-// `
-// const Amount = styled.span`
-//     width: 30px;
-//     height: 30px;
-//     border-radius: 10px;
-//     border: 1px solid gray;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     margin: 0px 5px;
+const AmountContainer = styled.div`
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+`
+const Amount = styled.span`
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
 
-// `
+`
 const ButtonC = styled.button`
     padding: 15px;
     margin-right: 5px;
@@ -135,6 +134,7 @@ const DetalleProducto = () => {
     const { id } = useParams();
     //const history = useHistory();
 
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchProducto = async () => {
@@ -154,13 +154,20 @@ const DetalleProducto = () => {
         fetchProducto();
     }, [id])
 
-    // const [contador, setCount] = useState(1);
+    const [cantidad, setCantidad] = useState(1);
     const history = useHistory();
-    const [state, dispatch] = useReducer(carritoReducer, carritoInitialState);
 
-    const addToCart = (id) => {
-        console.log(id);
-        dispatch({type:TYPES.ADD_TO_CART,payload:id});
+    const handleClick =() =>{
+        dispatch(addProducto({ ...producto, cantidad}) 
+        );
+    };
+
+    const handleCantidad = (tipo) =>{
+        if(tipo ==="dis"){
+            cantidad > 1 && setCantidad(cantidad-1)
+        }else{
+            setCantidad(cantidad+1)
+        }
     }
 
     return (
@@ -202,12 +209,12 @@ const DetalleProducto = () => {
                         </Adicionales>
                     </div>
                     <AddContainer>
-                        {/* <AmountContainer>
-                            <Button onClick={() => contador > 1 ? setCount(contador - 1) : contador}><Remove /></Button>
-                            <Amount >{contador}</Amount>
-                            <Button onClick={() => setCount(contador + 1)}><Add /></Button>
-                        </AmountContainer> */}
-                        <ButtonC onClick={() => addToCart(id)}>Agregar al Carrito</ButtonC>
+                        <AmountContainer>
+                            <Button onClick={()=>handleCantidad("dis")}><Remove /></Button>
+                            <Amount >{cantidad}</Amount>
+                            <Button onClick={()=>handleCantidad("inc")}><Add /></Button>
+                        </AmountContainer>
+                        <ButtonC onClick={handleClick}>Agregar al Carrito</ButtonC>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>

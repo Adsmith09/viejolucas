@@ -1,4 +1,6 @@
 
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components"
 import useFetch from '../hooks/useFetch';
 import Producto from "./Producto"
@@ -10,8 +12,14 @@ const Container = styled.div`
     justify-content: space-between;
 `
 
-const Productos = () => {
+const Productos = ({categoria,cprecio}) => {
         const{datos:listarProductos} = useFetch('/producto');
+
+        // const [productos, setProductos] = useState([]);
+
+        // useEffect(()=>{
+            
+        // },[categoria])
 
     return (
         <Container>

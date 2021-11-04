@@ -8,12 +8,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import DetalleProducto from "./App/Paginas/DetalleProducto";
 import ScrollRestoration from 'react-scroll-restoration'
 import PersonalizarBurger from "./App/Paginas/PersonalizarBurger";
-
+import { Provider } from "react-redux";
+import store from './App/Redux/tienda'
 
 
 const App = () => {
  
   return (
+    <Provider store={store}>
     <BrowserRouter >
       <ScrollRestoration/>
       <Switch>
@@ -27,6 +29,7 @@ const App = () => {
      
       </Switch>
     </BrowserRouter>
+    </Provider>
   );
 }
 
